@@ -10,33 +10,53 @@ import { Icon } from 'astro-icon/components'
     <li class="menu-item">
       <a href="/">Home</a>
     </li>
-    <li class="menu-item">
-      <a href="/blog/">Blog</a>
-    </li>
-    <li class="menu-item">
-      <a href="/portfolio/">Portfolio</a>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Parish Council</button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/markdown-page/">Council Team</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/meetings/">Meetings</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/minutes/">Minutes</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/newsletters/">Newsletters</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/emergency-plan/">Emergency Plan</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/annual-reports/">Annual Reports</a>
+        </li>
+      </ul>
     </li>
     <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
+      <button aria-haspopup="true" aria-expanded="false">Resident Information</button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/local-services/">Local Services</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/history-of-west-burton/">History of West Burton</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/upper-dales-health-watch">Upper Dales Health Watch</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Visitor Information</button>
       <ul class="dropdown-menu">
         <li class="submenu-item">
           <a href="/mdx-page/">MDX Page</a>
         </li>
         <li class="submenu-item">
-          <a href="/markdown-page/">Markdown Page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/accessible-components">Accessible Components</a>
+          <a href="/holiday-accommodation/">Holiday Accommodation</a>
         </li>
       </ul>
-    </li>
-    <li class="menu-item">
-      <a href="https://accessible-astro.incluud.dev/" rel="external">Docs</a>
-    </li>
-    <li class="menu-item type-icon">
-      <a href="https://github.com/markteekman/accessible-astro-starter" title="Go to the GitHub page">
-        <Icon name="ion:logo-github" />
-      </a>
     </li>
   </Navigation>
 </header>
