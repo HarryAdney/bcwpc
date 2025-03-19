@@ -1,0 +1,1 @@
+Use the font Tahoma. If Tahoma is not available, the browser should fall back to Geneva, then to the generic sans-serif, then to Arial and then Helvetica. Finally, if none of these fonts are available, the browser will use the default sans-serif font. For the html element, the defined font family is only sans-serif. The font size is 16px for all of those elements.

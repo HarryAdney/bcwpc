@@ -1,7 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro'
 import { SkipLink } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+// import { Icon } from 'astro-icon/components'
 ---
 
 <header>
@@ -14,7 +14,10 @@ import { Icon } from 'astro-icon/components'
       <button aria-haspopup="true" aria-expanded="false">Parish Council</button>
       <ul class="dropdown-menu">
         <li class="submenu-item">
-          <a href="/markdown-page/">Council Team</a>
+          <a href="/parish-council/">About the Council</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/council-team/">Council Team</a>
         </li>
         <li class="submenu-item">
           <a href="/meetings/">Meetings</a>

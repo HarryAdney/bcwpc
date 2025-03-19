@@ -4,15 +4,31 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer>
-  <!-- <CallToAction /> -->
-  <section class="py-8">
-    <div class="container">
+<footer class="pt-6 mt-6 bg-gray-100 border-t border-gray-300">
+  <div class="container flex justify-between px-6 mx-auto">
+    <div>
+      <h5 class="mb-2 font-bold">CONTACT DETAILS</h5>
+      <p>Long Farthings, West Burton, Leyburn, North Yorkshire DL8 4JX</p>
+      <p>+44 196 9663 551</p>
+      <p>sueryding@hotmail.co.uk</p>
+    </div>
+    <div>
+      <h3 class="mb-2 font-bold">LEGAL</h3>
       <p>
-        &copy; Copyright {currentYear} Burton-cum-Walden Parish Council. All rights reserved. <a
-          href="https://astro.build/">Astro</a
-        >. <br />Website by <a href="https://harryadney.design" target="_blank">HarryAdney Web Design </a>.
+        <a class="text-blue-600" href="gdpr"> GDPR and Privacy Policy </a>
+      </p>
+      <p>
+        <a class="text-blue-600" href="accessibility-statement"> Accessibility Statement </a>
       </p>
     </div>
-  </section>
+  </div>
+  <div class="mt-6 bg-[hsl(210,4.5%,17.3%)] py-4 text-center text-xs text-white">
+    <p>
+      &copy; Copyright {currentYear} Burton-cum-Walden Parish Council. All rights reserved. <br />Website by <a
+        href="https://harryadney.design"
+        target="_blank"
+        >HarryAdney Web Design
+      </a>.
+    </p>
+  </div>
 </footer>
