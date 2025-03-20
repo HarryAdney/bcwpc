@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-// import Hero from '../components/Hero.astro'
+import Hero from '../components/Hero.astro'
 // import Feature from '../components/Feature.astro'
 // import Counter from '../components/Counter.astro'
 // import ContentMedia from '../components/ContentMedia.astro'
@@ -8,21 +8,36 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 ---
 
 <DefaultLayout title="Home">
+  <Hero />
   <main class="container px-6 py-10 mx-auto">
     <div class="grid gap-6 md:grid-cols-3">
       <div class="md:col-span-2">
-        <h2 class="text-xl font-bold">Welcome to West Burton, North Yorkshire</h2>
+        <h2 class="text-xl font-bold">History of West Burton, North Yorkshire</h2>
         <p class="mt-4 text-gray-700">
           West Burton is considered to be one of the most beautiful villages in the Yorkshire Dales National Park with a
-          large village green and no through road...
+          large village green and no through road.
         </p>
-        <p class="mt-2 text-gray-700">
-          The village has a real sense of community, with a small shop, a tearoom, a pub, and a family-run butcher’s
-          shop...
+        <p class="mt-4 text-gray-700">
+          The village has a real sense of community, with a small shop and tearoom, a pub and a family-run butcher's
+          shop. There is also plenty for the visitor to see and do. As well as The Old Smithy Antiques, there are miles
+          of footpaths for walks of all abilities, from easy to strenuous. Afterwards, you can relax at the Fox and
+          Hounds Inn. A wide variety of different types of accommodation is available to rent both in the village and
+          the surrounding area.
         </p>
-        <p class="mt-2 text-gray-700">
+        <p class="mt-4 text-gray-700">
+          For art lovers, within the village is the West Burton Cauldron Falls one of the waterfalls drawn by Turner
+          during his tour of the North of England. It's frequently listed as one of the loveliest waterfalls in North
+          Yorkshire.
+        </p>
+        <p class="mt-4 text-gray-700">
           There is evidence of Iron Age settlements to be found in the Parish, though the first dwellings on the site of
-          the present village were built during the 17th and 18th centuries...
+          the present village were probably Saxon. The Domesday Book - referring to it as Burton - records it as a
+          relatively small community. Most of today's buildings were built between the late 18th and late 19th centuries
+          when West Burton was a thriving market town, based on mining rather than agriculture, but with a large number
+          of service businesses. The structure of the Parish has remained largely unchanged since then.
+        </p>
+        <p class="mt-4 text-gray-700">
+          For more information on the history of the area please see "History of West Burton."
         </p>
       </div>
       <!-- <aside>

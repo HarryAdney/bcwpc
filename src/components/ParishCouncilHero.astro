@@ -2,6 +2,7 @@
 // import { Icon } from 'astro-icon/components'
 
 const { src = '/village-green-767x350.webp' } = Astro.props
+//Change this to a more appropriate image for the Parish Council
 ---
 
 <section class="my-24 hero">
@@ -9,7 +10,7 @@ const { src = '/village-green-767x350.webp' } = Astro.props
     <div class="grid items-center grid-cols-1 lg:grid-cols-1">
       <div class="flex flex-col items-center md:items-start">
         <h1 class="text-4xl text-center md:text-left">
-          <slot>Welcome to West Burton, North Yorkshire - this is in Hero.astro</slot>
+          <slot>About Parish councils</slot>
         </h1>
       </div>
       <img class="hidden lg:block" src={src} alt="" decoding="async" />

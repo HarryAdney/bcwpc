@@ -1,0 +1,56 @@
+---
+import ParishCouncilLayout from '../../layouts/ParishCouncilLayout.astro'
+import Hero from '../../components/ParishCouncilHero.astro'
+// import Feature from '../components/Feature.astro'
+// import Counter from '../components/Counter.astro'
+// import ContentMedia from '../components/ContentMedia.astro'
+// import { Accordion, AccordionItem } from 'accessible-astro-components'
+---
+
+<ParishCouncilLayout title="What is a Parish Council">
+  <Hero />
+  <main class="container px-6 py-10 mx-auto">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-xl font-bold">Our Newsletters</h2>
+        <p class="mt-4 text-gray-700">
+          Parish councils are democratically elected local authorities and are the first tier of government. The term
+          "parish council" is synonymous with "town council", "local council" and "community council". They are the
+          first point of contact for anyone concerned with a community issue..
+        </p>
+        <p class="mt-4 text-gray-700">
+          Parish councils work towards improving community wellbeing and providing better services. Their activities
+          fall into three main categories:
+        </p>
+        <ul class="my-4 list-disc list-inside">
+          <li>representing the local community;</li>
+          <li>delivering services to meet local needs;</li>
+          <li>working to improve the quality of life and well-being of the community.</li>
+        </ul>
+        <p class="mt-4 text-gray-700">
+          Through an extensive range of discretionary powers, local councils provide and maintain a variety of important
+          local services including allotments, bridleways, burial grounds, bus shelters, car parks, commons and open
+          spaces, community transport schemes, community safety and crime reduction measures, events and festivals,
+          footpaths, leisure and sports facilities, litter bins, public toilets, planning, street cleaning and lighting,
+          tourism activities, traffic calming measures, village greens and youth projects.
+        </p>
+        <p class="mt-4 text-gray-700">
+          The funding for parish councils is allocated by the district council and is taken from the area's council tax;
+          this is called an annual precept. The income and expenditure for the next financial year are calculated in the
+          form of estimates and this amount is added to the local council tax and then returned to the parishes in two
+          yearly installments. They can also apply for UK grants and funding and EU money under Objectives 1 and 2.
+        </p>
+      </div>
+      <!-- <aside>
+        <h2 class="text-xl font-bold">Latest News</h2>
+        <ul class="mt-4 space-y-2 text-blue-600">
+          <li><a href="#" class="hover:underline">Recipe Book</a></li>
+          <li><a href="#" class="hover:underline">Parish Meetings</a></li>
+          <li><a href="#" class="hover:underline">Wallace Education Fund</a></li>
+          <li><a href="#" class="hover:underline">Deliveries to West Burton</a></li>
+          <li><a href="#" class="hover:underline">May Fair, 28th May 2020 has been canceled</a></li>
+        </ul>
+      </aside> -->
+    </div>
+  </main>
+</ParishCouncilLayout>
