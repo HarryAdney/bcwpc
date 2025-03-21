@@ -1,0 +1,38 @@
+---
+import ParishCouncilLayout from '../../layouts/ParishCouncilLayout.astro'
+import Hero from '../../components/ParishCouncilHero.astro'
+// import Feature from '../components/Feature.astro'
+// import Counter from '../components/Counter.astro'
+// import ContentMedia from '../components/ContentMedia.astro'
+// import { Accordion, AccordionItem } from 'accessible-astro-components'
+---
+
+<ParishCouncilLayout title="Our Monthly and Annual Meetings">
+  <Hero />
+  <main class="container px-6 py-12 mx-auto">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-xl font-bold">Our Monthly and Annual Meetings</h2>
+        <p class="mt-4 text-gray-700"></p>
+        <p class="mt-4 text-gray-700"></p>
+        <ul class="my-4 list-disc list-inside">
+          <li>bullet point</li>
+          <li>bullet point</li>
+          <li>bullet point</li>
+        </ul>
+        <p class="mt-4 text-gray-700"></p>
+        <p class="mt-4 text-gray-700"></p>
+      </div>
+      <!-- <aside>
+        <h2 class="text-xl font-bold">Latest News</h2>
+        <ul class="mt-4 space-y-2 text-blue-600">
+          <li><a href="#" class="hover:underline">Recipe Book</a></li>
+          <li><a href="#" class="hover:underline">Parish Meetings</a></li>
+          <li><a href="#" class="hover:underline">Wallace Education Fund</a></li>
+          <li><a href="#" class="hover:underline">Deliveries to West Burton</a></li>
+          <li><a href="#" class="hover:underline">May Fair, 28th May 2020 has been canceled</a></li>
+        </ul>
+      </aside> -->
+    </div>
+  </main>
+</ParishCouncilLayout>
