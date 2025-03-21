@@ -1,6 +1,12 @@
 ---
 title: AccessGuard
 author: Alex Rivera
+chairman: Alex Rivera
+dated: '2023-07-18'
+tags:
+  - Web Security
+  - Accessibility Compliance
+  - Enterprise Websites
 description: A comprehensive web security solution that ensures both robust protection and WCAG 2.1 Level AAA compliance for enterprise websites
 ---
 

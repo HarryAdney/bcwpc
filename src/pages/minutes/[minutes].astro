@@ -34,13 +34,14 @@ const { Content } = await render(minutes)
   </div>
   <section class="my-12">
     <div class="container">
-      <h1>{minutes.data.title}</h1><br />
-      <p>By author: {minutes.data.author}</p>
+      <h1 class="text-center"S>{minutes.data.title}</h1><br />
     </div>
   </section>
   <section class="my-12">
     <div class="container space-content">
       <Content />
+      <p class="text-right">Chairman: {minutes.data.chairman}</p>
+      <p class="text-right">Date: {minutes.data.dated}</p>
     </div>
   </section>
 </DefaultLayout>

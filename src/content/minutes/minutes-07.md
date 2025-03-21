@@ -1,7 +1,13 @@
 ---
-title: SmartHome Access
-author: Emma Green
-description: An inclusive smart home automation system that enables people with mobility impairments to control their entire home environment independently
+title: Smarthome Access
+author: Alex Rivera
+chairman: Alex Rivera
+dated: '2023-07-18'
+tags:
+  - Web Security
+  - Accessibility Compliance
+  - Enterprise Websites
+description: A comprehensive web security solution that ensures both robust protection and WCAG 2.1 Level AAA compliance for enterprise websites
 ---
 
 ## Project Overview

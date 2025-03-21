@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-	
+
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -632,7 +632,7 @@
 	<wp:term><wp:term_id>30</wp:term_id><wp:term_taxonomy>nav_menu</wp:term_taxonomy><wp:term_slug><![CDATA[skip-menu]]></wp:term_slug><wp:term_name><![CDATA[Skip Menu]]></wp:term_name>
 </wp:term>
 
-	
+
 
 <image>
 	<url>https://westburton-yorkshire.org.uk/wp-content/uploads/2020/03/cropped-ms-icon-310x310-1-32x32.png?wsr</url>
@@ -640,7 +640,7 @@
 	<link>https://westburton-yorkshire.org.uk</link>
 	<width>32</width>
 	<height>32</height>
-</image> 
+</image>
 
 		<item>
 		<title><![CDATA[icon]]></title>
@@ -12128,7 +12128,7 @@ Suspendisse urna risus, interdum eu molestie eu, blandit vel orci. Vestibulum er
 		<guid isPermaLink="false">http://server.shqiperiamarketing.com/beauty-wp/?page_id=282</guid>
 		<description></description>
 		<content:encoded><![CDATA[<h2 class="pe-typo-title">Image Borders</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-4">
 [code]<img class="pe-img-polaroid" src="http://placehold.it/150x150" alt="Typography" />[/code]
 <div style="text-align: center;"><img class="pe-img-polaroid" src="http://placehold.it/150x150" alt="Placeholder 1" /></div>
@@ -12144,7 +12144,7 @@ Suspendisse urna risus, interdum eu molestie eu, blandit vel orci. Vestibulum er
 </div>
 
 <h2 class="pe-typo-title">Headings</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-6">
 <h1>This is Heading One (h1)</h1>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed turpis convallis sit amet condimentum diam vehicula. Morbi suscipit nisl odio, nec sodales tellus. Aenean quis sapien suscipit mauris convallis porta lacinia bibendum felis.
@@ -12164,7 +12164,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed tu
 </div>
 
 <h2 class="pe-typo-title">Numered blocks</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-6">
 [code]<p class="pe-block"><span class="pe">01</span>[i]Text goes here[/i]</p>[/code]
 <p class="pe-block"><span class="pe">01</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed turpis convallis sit amet condimentum diam vehicula. Morbi suscipit nisl odio, nec sodales tellus. Aenean quis sapien suscipit mauris.</p>
@@ -12180,7 +12180,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed tu
 </div>
 
 <h2 class="pe-typo-title">Colored blocks</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-6">
 <p class="green">this is a paragraph with the class "<strong>green</strong>"
 <code>&lt;p class="<strong>green</strong>"&gt; <i>Text goes here</i> &lt;/p&gt;</code></p>
@@ -12207,7 +12207,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed tu
 </div>
 
 <h2 class="pe-typo-title">Quote blocks</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-6">
 <p class="quote-left"><span class="fa fa-quote-left"></span>this is a paragraph with the class "<strong>quote-left</strong>"
 <code>&lt;p class="<strong>quote-left</strong>"&gt;&lt;span class="<strong>fa fa-quote-left</strong>"&gt;&lt;/span&gt; Text goes here&lt;/p&gt;</code></p>
@@ -12219,7 +12219,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed tu
 </div>
 
 <h2 class="pe-typo-title">Icon blocks</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-md-6">
 <p class="pebadge">this is a paragraph with the class "<strong>pebadge</strong>"
 <code>&lt;p class="<strong>pebadge</strong>"&gt; Text goes here&lt;/p&gt;</code></p>
@@ -12263,7 +12263,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra leo sed tu
 </div>
 
 <h2 class="pe-typo-title">Unordered lists</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-sm-4">
 [code style="min-height: 142px;"]Default list[/code]
 <ul>
@@ -12326,7 +12326,7 @@ Enter the class name to ul tag <ul class="pe-dark">[/code]
 </div>
 
 <h2 class="pe-typo-title">Ordered lists</h2>
-<div class="row clearfix">
+<div class="clearfix row">
 <div class="col-sm-4">
 [code style="min-height: 142px;"]Default list[/code]
 <ol>
@@ -12417,9 +12417,9 @@ This is a link with the class "button"
 <p><a class="button" href="http://fontawesome.io/icons/" target="_blank" rel="noopener noreferrer">All available font Awesome icons</a></p>
 <p><a class="button" href="http://fontawesome.io/examples/" target="_blank" rel="noopener noreferrer">Example of usage</a></p>
 <p>Example of usage :</p>
-[code]<span class="fa fa fa-adjust"></span>[/code]
+[code]<span class="fa fa-adjust"></span>[/code]
 <p><span class="fa fa-adjust"></span></p>
-[code]<span class="fa fa fa-adjust fa-4x"></span>[/code]
+[code]<span class="fa fa-adjust fa-4x"></span>[/code]
 <p><span class="fa fa-adjust fa-4x"></span></p>
 ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -12579,7 +12579,7 @@ Monday
 9.30 AM - 12 PM | Statistics | 220 B
 12 PM - 12.15 PM | Lunch time | assembly hall
 12.15 PM - 3 PM | Music | jazz club
-3 PM - 4 PM | In a facilisis augue | $28 
+3 PM - 4 PM | In a facilisis augue | $28
 [/table]
 [/col]
 [col size="6" screen="sm"]
@@ -26628,4 +26628,3 @@ TUESDAY, 5 NOVEMBER 2024</h1>]]></content:encoded>
 							</item>
 				</channel>
 </rss>
-	

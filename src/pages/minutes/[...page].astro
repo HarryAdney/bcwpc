@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
-import { Card, Pagination } from 'accessible-astro-components'
+import { Card } from 'accessible-astro-components'
 import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
@@ -19,7 +19,7 @@ const { page } = Astro.props
 
 <DefaultLayout title="Minutes" description="An example of a minutes using the Astro Content Collections.">
   <section class="my-12">
-    <div class="space-content container">
+    <div class="container space-content">
       <h1>minutes</h1>
       <p class="text-2xl">
         An example of a minutes built using Astro Content Collections, showcasing how to organize and display minutes
@@ -43,7 +43,7 @@ const { page } = Astro.props
           ))
         }
       </ul>
-      <div class="mt-12 grid place-content-center">
+      <!-- <div class="grid mt-12 place-content-center">
         <Pagination
           firstPage={page.url.prev ? '/minutes' : null}
           previousPage={page.url.prev ? page.url.prev : null}
@@ -52,7 +52,7 @@ const { page } = Astro.props
           currentPage={page.currentPage}
           totalPages={Math.ceil(page.total / page.size)}
         />
-      </div>
+      </div> -->
     </div>
   </section>
 </DefaultLayout>
