@@ -14,7 +14,9 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    compress(),
+    compress({
+      css: false, // Disable CSS compression to keep CSS files separate
+    }),
   ],
   vite: {
     css: {
@@ -25,6 +27,9 @@ export default defineConfig({
           },
         },
       },
+    },
+    build: {
+      cssCodeSplit: true, // Ensure CSS is output as separate files
     },
   },
 })
