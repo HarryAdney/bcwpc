@@ -1,0 +1,61 @@
+---
+import ParishCouncilLayout from '../layouts/ParishCouncilLayout.astro'
+import Hero from '../components/ParishCouncilTeamHero.astro'
+// import Feature from '../components/Feature.astro'
+// import Counter from '../components/Counter.astro'
+// import ContentMedia from '../components/ContentMedia.astro'
+// import { Accordion, AccordionItem } from 'accessible-astro-components'
+---
+
+<ParishCouncilLayout title="Upper Dales Health Watch">
+  <Hero />
+  <main class="container mx-auto px-6 py-10">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h1 class="text-xl font-bold">Upper Dales Health Watch</h1>
+
+        <p class="mt-4 text-black">
+          The Upper Dales Health Watch is a Joint Committee of 11 Parish Councils in the Central Dales GP Practice area.
+        </p>
+        <p class="mt-4 text-black">
+          Representatives from these Parish Councils meet 3 times a year with the Senior Partner and the Practice
+          Manager to share information and concerns.
+        </p>
+
+        <p class="mt-4 text-black">
+          Burton-cum-Walden is currently represented by Cllr Jane Ritchie who is also the Hon Secretary of the
+          committee. Please contact her if you want any general health issues raised. The UDHW does not discuss
+          individual patients.
+        </p>
+        <h2>Patient Participation Group</h2>
+        <p>Please click the links below to view the minutes in PDF format:</p>
+        <ul class="mt-4 space-y-2 text-blue-600">
+          <li>
+            <a href="../documents/udhw-synopsis-feb-2025.pdf" class="hover:underline" target="_blank"
+              >Synopsis of the meeting held on 18th September 2025</a
+            >
+          </li>
+          <li>
+            <a href="../documents/udhw-synopsis-of-mins-sept-2024.pdf" class="hover:underline"
+              >Synopsis of the meeting held on 9th September 2024</a
+            >
+          </li>
+          <li>
+            <a href="../documents/udhw-synopsis-sept-2023.pdf" class="hover:underline"
+              >Synopsis of the meeting held on 12th September 2023</a
+            >
+          </li>
+        </ul>
+      </div>
+      <aside>
+        <h2 class="text-xl font-bold">Unused Medical Equipment</h2>
+        <p class="mt-4 text-black">
+          Your unused medical loan equipment can be easily returned for use by other patients. Please <a
+            href="./medequip-leaflet.pdf"
+            target="_blank">download the leaflet</a
+          > for more information.
+        </p>
+      </aside>
+    </div>
+  </main>
+</ParishCouncilLayout>

@@ -4,7 +4,7 @@ import { SkipLink } from 'accessible-astro-components'
 // import { Icon } from 'astro-icon/components'
 ---
 
-<header class="py-2 border border-primary bg-dark">
+<header class="border-primary bg-dark border py-2">
   <SkipLink />
   <Navigation>
     <li class="menu-item">
@@ -50,8 +50,13 @@ import { SkipLink } from 'accessible-astro-components'
         </li>
       </ul>
     </li>
-    <li class="menu-item">
+    <li class="menu-item has-dropdown">
       <a href="/visitor-information/">Visitor Information</a>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/accommodation/">Accommodation</a>
+        </li>
+      </ul>
     </li>
   </Navigation>
 </header>
