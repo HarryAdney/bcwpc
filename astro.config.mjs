@@ -1,21 +1,18 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
-import compress from 'astro-compress'
 import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-  compressHTML: true,
+  compressHTML: false, // Disable HTML compression
   site: 'https://westburton-yorkshire.org.uk',
   integrations: [
     mdx(),
     icon(),
     tailwind({
       applyBaseStyles: false,
-    }),
-    compress({
-      css: false, // Disable CSS compression to keep CSS files separate
+      config: { path: './tailwind.config.js' },
     }),
   ],
   vite: {
@@ -27,9 +24,12 @@ export default defineConfig({
           },
         },
       },
+      // Force CSS to be output as separate files
+      devSourcemap: true,
     },
     build: {
       cssCodeSplit: true, // Ensure CSS is output as separate files
+      assetsInlineLimit: 0, // Disable inlining of assets
     },
   },
 })

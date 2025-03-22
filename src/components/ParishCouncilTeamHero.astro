@@ -1,0 +1,27 @@
+---
+// import { Icon } from 'astro-icon/components'
+
+const { src = '/village-green-767x350.webp' } = Astro.props
+// Change this to a more appropriate image for the Parish Council
+---
+
+<section class="hero my-24">
+  <div class="container">
+    <div class="grid grid-cols-1 items-center lg:grid-cols-1">
+      <div class="flex flex-col items-center md:items-start">
+        <h1 class="text-center text-4xl md:text-left">
+          <slot>Meet your team!</slot>
+        </h1>
+      </div>
+      <img class="hidden lg:block" src={src} alt="" decoding="async" />
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  :global(.darkmode .text-gradient) {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
