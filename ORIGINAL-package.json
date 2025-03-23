@@ -1,10 +1,10 @@
 {
-  "name": "b-c-w-accessible",
+  "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
   "version": "3.4.1",
-  "author": "HarryAdney Web Design ",
+  "author": "Incluud",
   "license": "MIT",
-  "homepage": "https://westburton-yorkshire.org.uk",
+  "homepage": "https://accessible-astro.netlify.app/",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -26,10 +26,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarryAdney/b-c-w-accessible.git"
+    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/HarryAdney/b-c-w-accessible/issues"
+    "url": "https://github.com/incluud/accessible-astro-starter/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.0.8",
