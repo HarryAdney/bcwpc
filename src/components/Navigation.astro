@@ -30,6 +30,8 @@ import { DarkMode } from 'accessible-astro-components'
   document.addEventListener('astro:page-load', () => {
     // variables
     const mainNav = document.querySelector('#main-navigation')
+    if (!mainNav) return // Exit early if mainNav is not found
+
     const mainMenu = mainNav.querySelector('ul')
     const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
@@ -54,8 +56,13 @@ import { DarkMode } from 'accessible-astro-components'
     }
 
     const checkMenuSize = () => {
+      if (!mainNav) return
+
       const mainNavWidth = mainNav.getBoundingClientRect().width
-      const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
+      const desktopMenu = document.querySelector('.desktop-menu')
+      if (!desktopMenu) return
+
+      const desktopMenuWidth = desktopMenu.getBoundingClientRect().width
       const logoWidthBuffer = 300
       const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
 
@@ -105,7 +112,7 @@ import { DarkMode } from 'accessible-astro-components'
     }
 
     // execution
-    mainMenu &&
+    if (mainMenu) {
       mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
         const currentMenuItem = element.closest('li')
@@ -195,11 +202,13 @@ import { DarkMode } from 'accessible-astro-components'
           targetItem.querySelector('a, button, input').focus()
         }
       })
+    }
 
-    dropdownMenus &&
+    if (dropdownMenus && dropdownMenus.length > 0) {
       dropdownMenus.forEach((dropdownMenu) => {
         dropdownMenu.addEventListener('click', toggleDropdownMenu)
       })
+    }
 
     setActiveMenuItem()
     checkMenuSize()
