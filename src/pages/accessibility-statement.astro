@@ -1,0 +1,123 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
+// import Feature from '../components/Feature.astro'
+// import Counter from '../components/Counter.astro'
+// import ContentMedia from '../components/ContentMedia.astro'
+// import { Accordion, AccordionItem } from 'accessible-astro-components'
+---
+
+<DefaultLayout title="GDPR">
+  <Hero />
+  <main class="container mx-auto px-6 py-10">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-xl font-bold">Accessibility Statement for Burton-cum-Walden Parish Council</h2>
+        <p class="mt-4 text-gray-700">
+          This website is run by Burton-cum-Walden Parish Council. We want as many people as possible to be able to use
+          this website. For example, that means you should be able to:
+          <ul class="mt-2 list-inside list-disc">
+            <li>change colours, contrast levels and fonts</li>
+            <li>zoom in up to 300% without the text spilling off the screen</li>
+            <li>navigate most of the website using just a keyboard</li>
+            <li>navigate most of the website using speech recognition software</li>
+            <li>listen to most of the website using a screen reader .</li>
+          </ul>
+        </p>
+        <p class="mt-4 text-gray-700">We've also made the website text as simple as possible to understand.</p>
+        <p class="mt-4 text-gray-700">
+          AbilityNet has advice on making your device easier to use if you have a disability.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">How accessible this website is</h3>
+        <p class="mt-4 text-gray-700">We know some parts of this website are not fully accessible:</p>
+        <ul class="mt-2 list-inside list-disc">
+          <li>some older PDF documents are not fully accessible to screen reader software.</li>
+        </ul>
+        <h3 class="mt-4 text-lg font-bold">What to do if you cannot access parts of this website</h3>
+        <p class="mt-4 text-gray-700">
+          If you need information on this website in a different format like accessible PDF, large print, easy read,
+          audio recording or braille, email <a href="mailto:clerk@westburton-yorkshire.org.uk"
+            >clerk@westburton-yorkshire.org.uk</a
+          ><br />
+          We'll consider your request and get back to you in 5 working days.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">Reporting accessibility problems with this website</h3>
+        <p class="mt-4 text-gray-700">
+          We're always looking to improve the accessibility of this website. If you find any problems not listed on this
+          page or think we're not meeting accessibility requirements, contact: <a
+            href="mailto:clerk@westburton-yorkshire.org.uk">clerk@westburton-yorkshire.org.uk</a
+          >.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">Enforcement procedure</h3>
+        <p class="mt-4 text-gray-700">
+          The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies
+          (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').
+          If you're not happy with how we respond to your complaint, contact the <a
+            href="https://www.equalityadvisoryservice.com/"
+            target="_blank"
+            rel="noopener noreferrer">Equality Advisory and Support Service (EASS)</a
+          >.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">Contacting us by phone or visiting us in person</h3>
+        <p class="mt-4 text-gray-700">
+          We are a very small parish council and as such we are unable to provide a text relay service for people who
+          are deaf, hearing impaired or have a speech impediment.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">Technical information about this website's accessibility</h3>
+        <p class="mt-4 text-gray-700">
+          Burton-cum-Walden Parish Council is committed to making its website accessible, in accordance with the Public
+          Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+        </p>
+        <p class="mt-4 text-gray-700">
+          This website is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard, due
+          to the non-compliances listed below.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">Non compliance with the accessibility regulations</h3>
+        <p class="mt-4 text-gray-700">
+          Some landmarks in some pages are incorrectly located. This may impact users who use screen readers. We are
+          actively working on solutions to this and plan to have each landmark correctly located by September 2020.
+        </p>
+        <p class="mt-4 text-gray-700">
+          Some images do not have a text alternative, so people using a screen reader cannot access the information.
+          This fails WCAG 2.1 success criterion 1.1.1 (non-text content).
+        </p>
+        <p class="mt-4 text-gray-700">
+          We plan to add text alternatives for all images by 30th April 2025. When we publish new content we'll make
+          sure our use of images meets accessibility standards. .
+        </p>
+        <h3 class="mt-4 text-lg font-bold">PDFs and other documents</h3>
+        <p class="mt-4 text-gray-700">
+          Some of our older PDFs and Word documents do not meet accessibility standards; for example, they may not be
+          structured so they're accessible to a screen reader. This does not meet WCAG 2.1 success criterion 4.1.2
+          (name, role value).New PDFs will be updated to meet Accessibility guidelines.
+        </p>
+        <p class="mt-4 text-gray-700">
+          The accessibility regulations do not require us to fix PDFs or other documents published before 23 September
+          2018 if they're not essential to providing our services.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">How we tested this website</h3>
+        <p class="mt-4 text-gray-700">
+          This website was last tested on 24th March 2025. The test was carried out by HarryAdney Internet Services.
+        </p>
+        <h3 class="mt-4 text-lg font-bold">What we're doing to improve accessibility</h3>
+        <p class="mt-4 text-gray-700">
+          We are actively working through each non-compliant issue and aim to have the website fully compliant by 30th
+          April 2025.
+        </p>
+        <p class="mt-4 text-gray-700">
+          This statement was prepared on 21st March 2025. It was last updated on 25th April 2025.
+        </p>
+      </div>
+      <aside>
+        <h2 class="text-center text-xl font-bold">Latest News</h2>
+        <!-- <ul class="mt-4 space-y-2 text-blue-600">
+          <li><a href="#" class="hover:underline">Recipe Book</a></li>
+          <li><a href="#" class="hover:underline">Parish Meetings</a></li>
+          <li><a href="#" class="hover:underline">Wallace Education Fund</a></li>
+          <li><a href="#" class="hover:underline">Deliveries to West Burton</a></li>
+          <li><a href="#" class="hover:underline">May Fair, 28th May 2020 has been canceled</a></li>
+        </ul> -->
+      </aside>
+    </div>
+  </main>
+</DefaultLayout>
