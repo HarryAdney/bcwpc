@@ -1,12 +1,19 @@
 ---
 import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
+//import { Image } from 'astro:assets'
+//import logo from '../../west-burton-logo-309x100-1.jpg'
 ---
 
 <div id="main-navigation" class="is-desktop py-8">
   <div class="container">
     <a href="/" class="flex items-center gap-2 !no-underline">
-      <img src="/west-burton-logo-309x100-1.jpg" alt="Burton-cum-Walden Parish Council Logo" width="309" height="100" />
+      <img
+        src="/west-burton-logo-309x100-1.webp"
+        alt="Burton-cum-Walden Parish Council Logo"
+        width="309"
+        height="100"
+      />
       <span class="sr-only font-bold">Burton-cum-Walden Parish Council</span>
     </a>
     <div class="wrapper">
@@ -15,7 +22,7 @@ import { DarkMode } from 'accessible-astro-components'
           <slot />
         </ul>
       </nav>
-      <DarkMode initialMode="light" />
+      <DarkMode />
       <ResponsiveToggle />
     </div>
     <nav class="mobile-menu" aria-label="Main navigation mobile">
@@ -30,8 +37,6 @@ import { DarkMode } from 'accessible-astro-components'
   document.addEventListener('astro:page-load', () => {
     // variables
     const mainNav = document.querySelector('#main-navigation')
-    if (!mainNav) return // Exit early if mainNav is not found
-
     const mainMenu = mainNav.querySelector('ul')
     const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
@@ -56,13 +61,8 @@ import { DarkMode } from 'accessible-astro-components'
     }
 
     const checkMenuSize = () => {
-      if (!mainNav) return
-
       const mainNavWidth = mainNav.getBoundingClientRect().width
-      const desktopMenu = document.querySelector('.desktop-menu')
-      if (!desktopMenu) return
-
-      const desktopMenuWidth = desktopMenu.getBoundingClientRect().width
+      const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
       const logoWidthBuffer = 300
       const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
 
@@ -70,7 +70,7 @@ import { DarkMode } from 'accessible-astro-components'
         mainNav.classList.remove('is-desktop')
         mainNav.classList.add('is-mobile')
       } else if (totalMenuWidth <= mainNavWidth) {
-        mainNav.classList.add('is-desktop')
+        mainNav;.classList.add('is-desktop')
         mainNav.classList.remove('is-mobile')
       }
     }
@@ -112,7 +112,7 @@ import { DarkMode } from 'accessible-astro-components'
     }
 
     // execution
-    if (mainMenu) {
+    mainMenu &&
       mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
         const currentMenuItem = element.closest('li')
@@ -202,13 +202,11 @@ import { DarkMode } from 'accessible-astro-components'
           targetItem.querySelector('a, button, input').focus()
         }
       })
-    }
 
-    if (dropdownMenus && dropdownMenus.length > 0) {
+    dropdownMenus &&
       dropdownMenus.forEach((dropdownMenu) => {
         dropdownMenu.addEventListener('click', toggleDropdownMenu)
       })
-    }
 
     setActiveMenuItem()
     checkMenuSize()
@@ -297,8 +295,8 @@ import { DarkMode } from 'accessible-astro-components'
         .has-dropdown > button:hover,
         .has-dropdown > button:focus {
           text-decoration: underline;
-          // text-decoration-style: wavy;
-          text-decoration-thickness: 4px;
+          text-decoration-style: solid;
+          text-decoration-thickness: 2px;
           text-underline-offset: 7px;
         }
 

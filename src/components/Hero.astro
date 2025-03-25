@@ -4,15 +4,22 @@
 const { src = '/walden-west-burton-1080x499.webp' } = Astro.props
 ---
 
-<section class="my-24 hero">
+<section class="hero my-24">
   <div class="container">
-    <div class="grid items-center grid-cols-1 lg:grid-cols-1">
+    <div class="grid grid-cols-1 items-center lg:grid-cols-1">
       <!-- <div class="flex flex-col items-center md:items-start">
         <h1 class="text-4xl text-center md:text-left">
           <slot>Welcome to West Burton, North Yorkshire</slot>
         </h1>
       </div> -->
-      <img class="hidden lg:block" src={src} alt="" decoding="async" />
+      <img
+        class="hidden lg:block"
+        src={src}
+        alt="View of West Burton, nestled among the surrounding hills"
+        width="1049"
+        height="499"
+        decoding="async"
+      />
     </div>
   </div>
 </section>
