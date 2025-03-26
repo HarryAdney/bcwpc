@@ -4,6 +4,7 @@ import '../assets/scss/globals.scss'
 import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import AccessibilityWidget from '../components/AccessibilityWidget.astro'
 import { ViewTransitions } from 'astro:transitions'
 
 const {
@@ -45,6 +46,7 @@ const {
     <ViewTransitions />
   </head>
   <body>
+    <AccessibilityWidget />
     <Header />
     <main id="main-content" transition:animate="fade">
       <slot />
@@ -90,6 +92,8 @@ const {
         background-color: var(--background);
         overflow-x: hidden;
         color: var(--font-color);
+        /* Add padding to account for the fixed accessibility widget */
+        padding-top: 2.5rem;
 
         main {
           flex: 1 0 auto;
@@ -110,13 +114,11 @@ const {
         &:hover,
         &:focus-visible {
           background-color: var(--action-color-state);
-
           svg path {
             stroke: white;
           }
         }
       }
-
       .sr-only {
         position: absolute;
         margin: -1px;
@@ -129,5 +131,6 @@ const {
         white-space: nowrap;
       }
     </style>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/jerit-baiju/a11y-widget@latest/script.js"></script> -->
   </body>
 </html>

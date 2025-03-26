@@ -1,0 +1,196 @@
+---
+
+---
+
+<div class="accessibility-widget fixed-widget">
+  <div class="widget-container">
+    <div class="widget-section">
+      <span class="widget-label">Font Size:</span>
+      <button id="decrease-font" class="widget-button" aria-label="Decrease font size">A-</button>
+      <button id="increase-font" class="widget-button" aria-label="Increase font size">A+</button>
+    </div>
+    <!-- <div class="widget-section">
+      <span class="widget-label">Line Height:</span>
+      <button id="decrease-line-height" class="widget-button" aria-label="Decrease line height">↕-</button>
+      <button id="increase-line-height" class="widget-button" aria-label="Increase line height">↕+</button>
+    </div> -->
+    <button id="reset-settings" class="widget-button reset-button" aria-label="Reset to default settings">Reset</button>
+  </div>
+</div>
+
+<style>
+  .accessibility-widget {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid var(--action-color);
+    background-color: var(--neutral-background);
+    padding: 0.5rem 1rem;
+  }
+
+  .fixed-widget {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+  .widget-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .widget-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .widget-label {
+    color: var(--font-color);
+    font-size: 0.875rem;
+  }
+
+  .widget-button {
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-small);
+    background-color: var(--action-color);
+    padding: 0.25rem 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+  }
+
+  .widget-button:hover,
+  .widget-button:focus {
+    outline: 2px solid var(--action-color-state);
+    outline-offset: 2px;
+    background-color: var(--action-color-state);
+  }
+
+  .reset-button {
+    background-color: var(--neutral-900);
+  }
+
+  .reset-button:hover,
+  .reset-button:focus {
+    background-color: var(--neutral-700);
+  }
+
+  @media (max-width: 768px) {
+    .accessibility-widget {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Initialize variables to store original values
+  let originalFontSize = window.getComputedStyle(document.body).fontSize
+  let originalLineHeight = window.getComputedStyle(document.body).lineHeight
+
+  // Store current values
+  let currentFontSize = parseFloat(originalFontSize)
+
+  // Define line height presets based on Tailwind's approach
+  const lineHeightPresets = {
+    tight: 1.25,
+    snug: 1.375,
+    normal: 1.5,
+    relaxed: 1.625,
+    loose: 2,
+  }
+
+  // Initialize with 'normal' or convert existing value
+  let currentLineHeightKey = 'normal'
+  let currentLineHeight = originalLineHeight === 'normal' ? lineHeightPresets.normal : parseFloat(originalLineHeight)
+
+  // Get buttons
+  const decreaseFontBtn = document.getElementById('decrease-font')
+  const increaseFontBtn = document.getElementById('increase-font')
+  const decreaseLineHeightBtn = document.getElementById('decrease-line-height')
+  const increaseLineHeightBtn = document.getElementById('increase-line-height')
+  const resetBtn = document.getElementById('reset-settings')
+
+  // Font size adjustment
+  decreaseFontBtn?.addEventListener('click', () => {
+    if (currentFontSize > 12) {
+      currentFontSize -= 1
+      updateFontSize()
+    }
+  })
+
+  increaseFontBtn?.addEventListener('click', () => {
+    if (currentFontSize < 24) {
+      currentFontSize += 1
+      updateFontSize()
+    }
+  })
+
+  // Line height adjustment
+  decreaseLineHeightBtn?.addEventListener('click', () => {
+    if (currentLineHeight > 1.0) {
+      currentLineHeight -= 0.1
+      updateLineHeight()
+    }
+  })
+
+  increaseLineHeightBtn?.addEventListener('click', () => {
+    if (currentLineHeight < 2.0) {
+      currentLineHeight += 0.1
+      updateLineHeight()
+    }
+  })
+
+  // Reset button
+  resetBtn?.addEventListener('click', () => {
+    resetSettings()
+  })
+
+  // Update functions
+  function updateFontSize() {
+    document.body.style.fontSize = `${currentFontSize}px`
+    // Also update local storage to persist the setting
+    localStorage.setItem('userFontSize', currentFontSize.toString())
+  }
+
+  function updateLineHeight() {
+    document.body.style.lineHeight = currentLineHeight.toFixed(1)
+    // Also update local storage to persist the setting
+    localStorage.setItem('userLineHeight', currentLineHeight.toFixed(1).toString())
+  }
+
+  function resetSettings() {
+    // Reset to original values
+    document.body.style.fontSize = originalFontSize
+    document.body.style.lineHeight = originalLineHeight
+
+    // Reset current values
+    currentFontSize = parseFloat(originalFontSize)
+    currentLineHeight = originalLineHeight === 'normal' ? 1.2 : parseFloat(originalLineHeight)
+
+    // Clear local storage
+    localStorage.removeItem('userFontSize')
+    localStorage.removeItem('userLineHeight')
+  }
+
+  // Check if there are saved settings and apply them on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedFontSize = localStorage.getItem('userFontSize')
+    const savedLineHeight = localStorage.getItem('userLineHeight')
+
+    if (savedFontSize) {
+      currentFontSize = parseFloat(savedFontSize)
+      updateFontSize()
+    }
+
+    if (savedLineHeight) {
+      currentLineHeight = parseFloat(savedLineHeight)
+      updateLineHeight()
+    }
+  })
+</script>
