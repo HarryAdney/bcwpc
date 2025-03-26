@@ -13,7 +13,14 @@ const { src = '/village-green-767x350.webp' } = Astro.props
           <slot>About Parish councils</slot>
         </h1>
       </div>
-      <img class="hidden lg:block" src={src} alt="" decoding="async" />
+      <img
+        class="hidden lg:block"
+        src={src}
+        alt="View of West Burton village green"
+        width="1168"
+        height="auto"
+        decoding="async"
+      />
     </div>
   </div>
 </section>

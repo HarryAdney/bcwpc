@@ -1,18 +1,18 @@
 # TASK LIST
 
-- [ ] Update README
+- [x] Update README
 - [ ] Update social-preview-image.png
-- [ ] Change palette to standard current website palette.
-- [ ] Add a favicon.ico
+- [x] Change palette to standard current website palette.
+- [x] Add a favicon.ico
 - [ ] Add a robots.txt
 - [ ] Add a sitemap.xml
 - [ ] Add a .htaccess file
-- [ ] Update navigation to include the subpage
+- [x] Update navigation to include the subpage
 - [ ] Add a search bar
-- [ ] Add a footer with copyright information, links to social media accounts etc.
+- [x] Add a footer with copyright information, links to social media accounts etc.
 
 - [x] Convert PDFs to markdown files
 - [ ] Create a new page for each PDF (with the same name as the PDF)
 - [ ] Add links to all pages from index.html
 - [x] Make sure that all images are in the correct folder and have been renamed appropriately
-- [ ] minutes.astro: update header
+- [x] minutes.astro: update header
