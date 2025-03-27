@@ -2,10 +2,11 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
+import { brotli } from '@zokki/astro-brotli'
 
 // https://astro.build/config
 export default defineConfig({
-  compressHTML: false, // Disable HTML compression
+  compressHTML: true, // Disable HTML compression
   site: 'https://westburton-yorkshire.org.uk',
   integrations: [
     mdx(),
@@ -14,6 +15,7 @@ export default defineConfig({
       applyBaseStyles: false,
       config: { path: './tailwind.config.js' },
     }),
+    brotli(),
   ],
   vite: {
     css: {
