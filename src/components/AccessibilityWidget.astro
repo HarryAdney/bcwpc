@@ -1,9 +1,12 @@
 ---
-
+import { DarkMode } from 'accessible-astro-components'
 ---
 
 <div class="accessibility-widget fixed-widget">
   <div class="widget-container">
+    <div class="widget-section darkmode-section">
+      <DarkMode initialMode="light" />
+    </div>
     <div class="widget-section">
       <span class="widget-label">Font Size:</span>
       <button id="decrease-font" class="widget-button" aria-label="Decrease font size">A-</button>
@@ -49,6 +52,10 @@
     gap: 0.5rem;
   }
 
+  .darkmode-section {
+    margin-right: 0.5rem;
+  }
+
   .widget-label {
     color: var(--font-color);
     font-size: 0.875rem;
@@ -79,6 +86,36 @@
   .reset-button:hover,
   .reset-button:focus {
     background-color: var(--neutral-700);
+  }
+
+  /* Darkmode toggle styles */
+  :global(.darkmode-toggle) {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  :global(.darkmode-toggle .icon) {
+    width: 24px;
+    height: 24px;
+  }
+
+  :global(.darkmode-toggle svg path) {
+    fill: var(--action-color);
+  }
+
+  :global(.darkmode-toggle:hover svg path) {
+    fill: var(--action-color-state);
+  }
+
+  :global(.darkmode-toggle:focus) {
+    outline: 2px solid var(--action-color);
+    outline-offset: 2px;
+  }
+
+  :global(.darkmode-toggle:focus:not(:focus-visible)) {
+    outline: none;
   }
 
   @media (max-width: 768px) {
