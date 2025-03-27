@@ -1,0 +1,47 @@
+<button class="responsive-toggle" aria-expanded="false" aria-label="Open menu navigation">
+  <svg width="26" height="21" aria-hidden="true" fill="var(--action-color)" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M2 1.667h24m-24 8h24m-24 8h24"
+      stroke="var(--action-color)"
+      stroke-width="2.667"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+    </path>
+  </svg>
+</button>
+
+<style lang="scss">
+  @use '../assets/scss/base/breakpoint' as *;
+  @use '../assets/scss/base/outline' as *;
+
+  .responsive-toggle {
+    display: none; /* This will be overridden by the is-mobile class in Navigation */
+    z-index: 100; /* Ensure it's above other elements */
+    cursor: pointer;
+    margin-top: 6px;
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    svg {
+      width: 30px;
+
+      path {
+        transition: fill 0.2s ease-in-out;
+      }
+    }
+
+    &:hover {
+      svg path {
+      svg path {
+        fill: var(--action-color-state);
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--action-color);
+      outline-offset: 2px;
+    }
+  }
+</style>
