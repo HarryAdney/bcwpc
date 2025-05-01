@@ -5,7 +5,7 @@ import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import AccessibilityWidget from '../components/AccessibilityWidget.astro'
-// import { ViewTransitions } from 'astro:transitions'
+import { ViewTransitions } from 'astro:transitions'
 
 const {
   title = 'West Burton Parish Council',
@@ -43,7 +43,7 @@ const {
     <meta name="theme-color" content="#ffffff" />
 
     <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
   <body>
     <AccessibilityWidget />
@@ -90,10 +90,10 @@ const {
         display: flex;
         flex-direction: column;
         background-color: var(--background);
-        overflow-x: hidden;
-        color: var(--font-color);
         /* Add padding to account for the fixed accessibility widget */
         padding-top: 2.5rem;
+        overflow-x: hidden;
+        color: var(--font-color);
 
         main {
           flex: 1 0 auto;
