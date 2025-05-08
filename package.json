@@ -1,6 +1,6 @@
 {
   "name": "b-c-w-accessible",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
+  "description": "Website for West Burton Parish Council.",
   "version": "3.4.1",
   "author": "HarryAdney Web Design ",
   "license": "MIT",
@@ -12,17 +12,14 @@
     "preview": "astro preview"
   },
   "keywords": [
-    "astro",
-    "astro-component",
-    "astro-components",
+    "West Burton",
+    "parish council",
+    "Wensleydale",
     "accessible",
     "accessibility",
     "a11y",
     "wcag",
-    "responsive",
-    "ui-library",
-    "ui-components",
-    "blog"
+    "responsive"
   ],
   "repository": {
     "type": "git",
