@@ -10,10 +10,13 @@ import { ViewTransitions } from 'astro:transitions'
 const {
   title = 'West Burton Parish Council',
   description = 'This is the website for Burton-cum-Walden Parish Council in West Burton, North Yorkshire.',
-  url = Astro.site,
+  url,
   image = 'village-green-767x350.webp',
   author = 'Martin Dimmock, HarryAdney Web Design.',
 } = Astro.props
+
+// Generate canonical URL if not provided
+const canonicalUrl = url || new URL(Astro.url.pathname, Astro.site).href
 ---
 
 <html lang="en" dir="ltr">
@@ -42,9 +45,15 @@ const {
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.webp" />
     <meta name="theme-color" content="#ffffff" />
 
-    <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      url={canonicalUrl}
+      image={image}
+      author={author}
+    />
     <ViewTransitions />
-
+    <meta name="ahrefs-site-verification" content="aaa663fc4a64f8f72b7cd6b57bcd8198101cd8c47abfaf0a86a52a7e0a9b1be6" />
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="nX8tDt14BV01AiqFk/s1Lw" async></script>
   </head>
   <body>
