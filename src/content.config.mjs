@@ -26,5 +26,18 @@ const minutes = defineCollection({
   }),
 })
 
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/events' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    time: z.string(),
+    location: z.string(),
+    description: z.string(),
+    organizer: z.string(),
+    category: z.string(),
+  }),
+})
+
 // 4. Export a single `collections` object to register you collection(s)
-export const collections = { minutes, projects }
+export const collections = { minutes, projects, events }
