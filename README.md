@@ -19,6 +19,7 @@ West Burton is considered one of the most beautiful villages in the Yorkshire Da
 ## ✨ Features
 
 ### 🎯 Core Functionality
+
 - **Parish Council Management**: Meeting minutes, agendas, and council information
 - **Village Events System**: Dynamic events calendar with content management
 - **Local Services Directory**: Comprehensive local business and service listings
@@ -26,6 +27,7 @@ West Burton is considered one of the most beautiful villages in the Yorkshire Da
 - **Community Information**: History, accommodation, and visitor information
 
 ### 🌐 Technical Features
+
 - **Astro 5+** - Modern static site generation
 - **Content Collections** - Structured content management for events, minutes, and projects
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
@@ -34,6 +36,7 @@ West Burton is considered one of the most beautiful villages in the Yorkshire Da
 - **Fast Performance** - Excellent Lighthouse scores across all metrics
 
 ### ♿ Accessibility Features
+
 - Semantic HTML landmarks (`header`, `main`, `footer`, `nav`, `section`)
 - ARIA attributes for enhanced screen reader support
 - Keyboard navigation support throughout
@@ -46,23 +49,27 @@ West Burton is considered one of the most beautiful villages in the Yorkshire Da
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (version 18 or higher)
 - npm or yarn package manager
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/HarryAdney/b-c-w-accessible.git
-   cd b-c-w-accessible
+   git clone https://github.com/HarryAdney/bcwpc.git
+   cd bcwpc
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -155,6 +162,7 @@ The website uses Tailwind CSS with custom SCSS for enhanced styling:
 - **Accessibility utilities**: Custom a11y classes in base styles
 
 ### Color Scheme
+
 - **Primary**: Blue tones for official elements
 - **Secondary**: Green for community elements
 - **Accent**: Purple for seasonal events
@@ -163,13 +171,17 @@ The website uses Tailwind CSS with custom SCSS for enhanced styling:
 ## 🔧 Configuration
 
 ### Site Configuration
+
 Edit `astro.config.mjs` for:
+
 - Site URL and base path
 - Build output settings
 - Integration configurations
 
 ### Content Schema
+
 Edit `content.config.mjs` to modify:
+
 - Content collection schemas
 - Validation rules
 - Field requirements
@@ -179,6 +191,7 @@ Edit `content.config.mjs` to modify:
 The site is optimized for static hosting platforms:
 
 1. **Build the site**
+
    ```bash
    npm run build
    ```
@@ -192,6 +205,7 @@ The site is optimized for static hosting platforms:
 ## 📊 Performance
 
 The website is optimized for excellent performance:
+
 - **Lighthouse Score**: 95+ across all metrics
 - **Core Web Vitals**: Optimized for LCP, FID, and CLS
 - **Image Optimization**: WebP format with proper sizing
@@ -209,6 +223,7 @@ We welcome contributions to improve the website:
 5. Open a Pull Request
 
 ### Development Guidelines
+
 - Follow accessibility best practices
 - Test with screen readers when possible
 - Maintain responsive design principles
@@ -221,7 +236,7 @@ For technical issues or questions about the website:
 
 - **Parish Council**: [clerk@burtoncumwalden-pc.gov.uk](mailto:clerk@burtoncumwalden-pc.gov.uk)
 - **Web Development**: [HarryAdney Web Design](https://harryadney.com)
-- **Issues**: [GitHub Issues](https://github.com/HarryAdney/b-c-w-accessible/issues)
+- **Issues**: [GitHub Issues](https://github.com/HarryAdney/bcwpc/issues)
 
 ## 📄 License
 
@@ -237,6 +252,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🏘️ About West Burton
 
 West Burton is a picturesque village in the Yorkshire Dales National Park, known for:
+
 - Large village green with no through road
 - Historic stone buildings and traditional architecture
 - Famous Cauldron Falls (painted by Turner)
