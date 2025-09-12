@@ -263,4 +263,5 @@ Visit [westburton-yorkshire.org.uk](https://westburton-yorkshire.org.uk) to expl
 
 ---
 
+<!-- markdownlint-disable-next-line MD036 -->
 **Built with ❤️ for the West Burton community**
