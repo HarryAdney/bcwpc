@@ -28,3 +28,7 @@ package-lock.json
 
 # astro build files
 .astro
+
+#Backups
+__BACKUP-*
+;
