@@ -4,7 +4,7 @@ date: '2025-02-04'
 time: '8:00 PM'
 location: 'Village Hall, West Burton'
 description: 'Monthly Parish Council meeting. All residents welcome to attend and observe.'
-organizer: 'Burton-cum-Walden Parish Council'
+contact: 'Burton-cum-Walden Parish Council'
 category: 'Parish Council'
 ---
 

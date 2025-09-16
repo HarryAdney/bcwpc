@@ -4,7 +4,7 @@ date: '2025-01-28'
 time: '7:00 PM'
 location: 'Central Dales Practice, Aysgarth'
 description: 'Quarterly meeting of the Upper Dales Health Watch committee with GP practice representatives.'
-organizer: 'Upper Dales Health Watch'
+contact: 'Upper Dales Health Watch'
 category: 'Health'
 ---
 

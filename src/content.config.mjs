@@ -34,7 +34,9 @@ const events = defineCollection({
     time: z.string(),
     location: z.string(),
     description: z.string(),
-    organizer: z.string(),
+    details: z.string().optional(),
+    cost: z.string().optional(),
+    contact: z.string(),
     category: z.string(),
   }),
 })

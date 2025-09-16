@@ -4,7 +4,7 @@ date: '2025-03-15'
 time: '2:00 PM'
 location: 'Meet at Village Green'
 description: 'A guided walk exploring the history and heritage of West Burton, including the famous waterfalls.'
-organizer: 'West Burton Heritage Group'
+contact: 'West Burton Heritage Group'
 category: 'Community'
 ---
 

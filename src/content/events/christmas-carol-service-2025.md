@@ -1,16 +1,18 @@
 ---
 title: Christmas Carol Service
-date: '2025-12-22'
+date: '2024-12-22'
 time: '6:00 PM'
 location: 'West Burton Chapel'
 description: 'Traditional Christmas carol service with readings, carols, and mulled wine afterwards.'
-organizer: 'West Burton Chapel'
+cost: 'Free'
+contact: 'West Burton Chapel'
 category: 'Seasonal'
 ---
 
 Join us for our traditional Christmas Carol Service at West Burton Chapel. This beloved annual event brings the community together to celebrate the festive season.
 
 The service will include:
+
 - Traditional Christmas carols
 - Seasonal readings
 - Community singing

@@ -1,10 +1,10 @@
 ---
 title: West Burton Spring Fair
-date: '2025-0;5-24'
+date: '2025-05-24'
 time: '2:00 PM - 6:00 PM'
 location: 'Village Green, West Burton'
 description: 'Annual village spring fair with stalls, games, refreshments, and entertainment for all the family.'
-organizer: 'West Burton Community Group'
+contact: 'West Burton Community Group'
 category: 'Community'
 ---
 
