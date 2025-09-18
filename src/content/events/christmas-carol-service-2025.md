@@ -1,21 +1,13 @@
 ---
-title: Christmas Carol Service
-date: '2024-12-22'
-time: '6:00 PM'
-location: 'West Burton Chapel'
-description: 'Traditional Christmas carol service with readings, carols, and mulled wine afterwards.'
+title: Carol Singing
+date: '2025-12-22'
+time: '6pm'
+location: 'West Burton Village Hall'
+description: '<p>Carol singing round the Village will take place on Monday 22 December and Tuesday 23 December. If you would like to take part, meet at the Village Hall at 6pm.</p>
+<p>The collection will be for Action for Children. All are welcome.</p>'
+
+
 cost: 'Free'
-contact: 'West Burton Chapel'
-category: 'Seasonal'
+contact: ''
+# category: ''
 ---
-
-Join us for our traditional Christmas Carol Service at West Burton Chapel. This beloved annual event brings the community together to celebrate the festive season.
-
-The service will include:
-
-- Traditional Christmas carols
-- Seasonal readings
-- Community singing
-- Mulled wine and mince pies afterwards
-
-All are welcome to attend this special community celebration. The chapel is located on the village green and is easily accessible.

@@ -1,6 +1,6 @@
 ---
 title: Christmas Wreath Making Workshop
-date: '2025-12-12'
+date: '2025-12-15'
 time: '2pm to 4pm'
 location: 'West Burton Village Hall'
 description: '<p>Learn how to use seasonal foliage and traditional festive trimmings to create your very own beautiful Christmas wreath.</p>
@@ -18,5 +18,4 @@ get in touch regarding sizes and designs.</p>'
 
 cost: '£38'
 contact: 'Helen by email <a href="mailto:bagsandblossoms@gmail.com">bagsandblossoms@gmail.com</a>'
-category: 'Seasonal'
 ---
