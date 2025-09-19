@@ -1,4 +1,4 @@
 
-harryadney/b-c-w-accessible
+harryadney/bcwpc
 
-https://github.com/harryadney/b-c-w-accessible
+https://github.com/harryadney/bcwpc

@@ -1,5 +1,5 @@
 {
-  "name": "b-c-w-accessible",
+  "name": "bcwpc",
   "description": "Website for West Burton Parish Council.",
   "version": "3.4.1",
   "author": "HarryAdney Web Design ",
@@ -23,10 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarryAdney/b-c-w-accessible.git"
+    "url": "git+https://github.com/HarryAdney/bcwpc.git"
   },
   "bugs": {
-    "url": "https://github.com/HarryAdney/b-c-w-accessible/issues"
+    "url": "https://github.com/HarryAdney/bcwpc/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.0.8",
