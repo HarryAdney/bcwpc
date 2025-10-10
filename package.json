@@ -53,6 +53,7 @@
   "dependencies": {
     "@zokki/astro-brotli": "^1.0.1",
     "accessible-astro-components": "^4.1.0",
+    "sitemap-generator": "^7.5.2",
     "tailwindcss-accessibility": "^1.0.0"
   }
 }
