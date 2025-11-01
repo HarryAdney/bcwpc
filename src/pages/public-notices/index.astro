@@ -1,0 +1,185 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import PublicNotices from '../../components/PublicNotices.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Get all public notices for the main listing
+const notices = await getCollection('public_notices', ({ data }) => !data.draft);
+
+// Sort by meeting date (newest first)
+const sortedNotices = notices.sort((a, b) =>
+  new Date(b.data.meetingDate).getTime() - new Date(a.data.meetingDate).getTime()
+);
+
+// Group notices by year with explicit typing
+interface YearGroup {
+  year: number;
+  notices: CollectionEntry<'public_notices'>[];
+}
+
+const yearGroups: YearGroup[] = [];
+const yearMap = new Map<number, CollectionEntry<'public_notices'>[]>();
+
+// Build the year groups manually to avoid type inference issues
+for (const notice of sortedNotices) {
+  const year = new Date(notice.data.meetingDate).getFullYear();
+  const existingGroup = yearMap.get(year);
+
+  if (existingGroup) {
+    existingGroup.push(notice);
+  } else {
+    yearMap.set(year, [notice]);
+  }
+}
+
+// Convert Map to array and sort by year (newest first)
+for (const [year, noticesArray] of yearMap.entries()) {
+  yearGroups.push({ year, notices: noticesArray });
+}
+
+yearGroups.sort((a, b) => b.year - a.year);
+---
+
+<DefaultLayout title="Public Notices - Burton-cum-Walden Parish Council">
+  <main class="container max-w-6xl px-6 py-10 mx-auto">
+    <header class="mb-10">
+      <h1 class="mb-4 text-4xl font-bold text-gray-900">Public Notices</h1>
+      <p class="text-lg text-gray-600">
+        Public notices for meetings of Burton-cum-Walden Parish Council. All meetings are held in the
+        Village Hall, West Burton unless otherwise specified.
+      </p>
+    </header>
+
+    <!-- Latest Notices Component -->
+    <section class="mb-12">
+      <PublicNotices limit={3} featured={true} />
+    </section>
+
+    <!-- All Notices by Year -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-bold text-gray-900">All Public Notices</h2>
+
+      {yearGroups.map((group) => {
+        const noticeCount = group.notices.length;
+        const noticeLabel = noticeCount === 1 ? 'notice' : 'notices';
+
+        return (
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="pb-2 mb-4 text-xl font-semibold text-gray-900 border-b border-gray-200">
+              {group.year} ({noticeCount} {noticeLabel})
+            </h3>
+
+            <div class="space-y-4">
+              {group.notices.map((notice) => (
+                <article class="p-4 transition-shadow border border-gray-200 rounded-lg hover:shadow-sm">
+                  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <div class="flex-1">
+                      <h4 class="mb-2 text-lg font-semibold text-gray-900">
+                        <a
+                          href={`/public-notices/${notice.slug}/`}
+                          class="transition-colors hover:text-blue-600"
+                        >
+                          {notice.data.title}
+                        </a>
+                      </h4>
+
+                      <div class="flex flex-wrap gap-4 mb-3 text-sm text-gray-600">
+                        <span class="flex items-center">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                          {new Date(notice.data.meetingDate).toLocaleDateString('en-GB', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
+
+                        <span class="flex items-center">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                          </svg>
+                          <span class="capitalize">{notice.data.meetingType}</span>
+                        </span>
+
+                        <span class="flex items-center">
+                          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          Published {new Date(notice.data.publishedDate).toLocaleDateString('en-GB')}
+                        </span>
+                      </div>
+
+                      {notice.data.agenda && notice.data.agenda.length > 0 && (
+                        <p class="text-sm text-gray-500">
+                          {notice.data.agenda.length} agenda item{notice.data.agenda.length !== 1 ? 's' : ''}
+                        </p>
+                      )}
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-3 lg:mt-0 lg:ml-4 sm:flex-row">
+                      <a
+                        href={`/public-notices/${notice.slug}/`}
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-green-700 transition-colors bg-green-100 rounded-md hover:bg-green-200"
+                      >
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Read Details
+                      </a>
+
+                      {notice.data.hasPDF && notice.data.pdfFile && (
+                        <a
+                          href={notice.data.pdfFile}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center px-3 py-2 text-sm font-medium text-blue-700 transition-colors bg-blue-100 rounded-md hover:bg-blue-200"
+                        >
+                          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                          </svg>
+                          PDF
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </section>
+
+    <!-- Archive Notice -->
+    <section class="p-6 mt-12 rounded-lg bg-gray-50">
+      <h3 class="mb-2 text-lg font-semibold text-gray-900">Looking for Older Notices?</h3>
+      <p class="mb-4 text-gray-600">
+        Public notices are typically published 6 days before each meeting. For notices older than those listed above,
+        please contact the Parish Clerk.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/contact/"
+          class="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-700 transition-colors bg-blue-100 rounded-md hover:bg-blue-200"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          Contact Clerk
+        </a>
+
+        <a
+          href="/documents/public_notices/"
+          class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-gray-200 rounded-md hover:bg-gray-300"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          View Archive
+        </a>
+      </div>
+    </section>
+  </main>
+</DefaultLayout>

@@ -1,0 +1,186 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  limit?: number;
+  showPDF?: boolean;
+  featured?: boolean;
+  className?: string;
+}
+
+const { limit = 5, showPDF = true, featured = false, className = '' } = Astro.props;
+
+// Get public notices with optional filtering
+const allNotices = await getCollection('public_notices');
+
+const filteredNotices = allNotices
+  .filter(({ data }) => {
+    const isPublished = !data.draft;
+    const matchesFeatured = featured ? data.featured : true;
+    return isPublished && matchesFeatured;
+  })
+  .sort((a, b) => new Date(b.data.meetingDate).getTime() - new Date(a.data.meetingDate).getTime())
+  .slice(0, limit);
+---
+
+<section class={`public-notices ${className}`}>
+  <h2 class="mb-4 text-2xl font-bold">Public Notices</h2>
+
+  {filteredNotices.length > 0 ? (
+    <ul class="space-y-4">
+      {filteredNotices.map((notice) => (
+        <li class="p-4 transition-shadow border border-gray-200 rounded-lg hover:shadow-md">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex-1">
+              <h3 class="mb-2 text-lg font-semibold text-gray-900">
+                {notice.data.title}
+              </h3>
+
+              <div class="space-y-1 text-sm text-gray-600">
+                <p>
+                  <strong>Meeting Date:</strong>
+                  {new Date(notice.data.meetingDate).toLocaleDateString('en-GB', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+
+                <p>
+                  <strong>Meeting Type:</strong>
+                  <span class="capitalize">{notice.data.meetingType}</span>
+                </p>
+
+                <p>
+                  <strong>Published:</strong>
+                  {new Date(notice.data.publishedDate).toLocaleDateString('en-GB')}
+                </p>
+
+                <p>
+                  <strong>Clerk:</strong> {notice.data.clerk}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 sm:mt-0 sm:ml-4">
+              {notice.data.hasPDF && showPDF && notice.data.pdfFile ? (
+                <a
+                  href={notice.data.pdfFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-blue-700 transition-colors bg-blue-100 rounded-md hover:bg-blue-200"
+                  aria-label={`View PDF for ${notice.data.title}`}
+                >
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  View PDF Notice
+                </a>
+              ) : (
+                <a
+                  href={`/public-notices/`}
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-green-700 transition-colors bg-green-100 rounded-md hover:bg-green-200"
+                  aria-label={`Read ${notice.data.title}`}
+                >
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  Read Notice
+                </a>
+              )}
+            </div>
+          </div>
+
+          {notice.data.agenda && notice.data.agenda.length > 0 && (
+            <details class="mt-3">
+              <summary class="text-sm font-medium text-gray-700 cursor-pointer hover:text-gray-900">
+                View Agenda Items ({notice.data.agenda.length} items)
+              </summary>
+              <div class="mt-2 text-sm text-gray-600">
+                <ol class="space-y-1 list-decimal list-inside">
+                  {notice.data.agenda.map((item) => (
+                    <li>
+                      <span class="font-medium">{item.item}</span>
+                      {item.description && (
+                        <p class="ml-4 text-gray-500">{item.description}</p>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </details>
+          )}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div class="py-8 text-center">
+      <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+      <p class="mt-2 text-gray-500">No public notices available at the moment.</p>
+    </div>
+  )}
+
+  {filteredNotices.length >= limit && (
+    <div class="mt-6 text-center">
+      <a
+        href="/public-notices/"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-700 transition-colors bg-blue-100 rounded-md hover:bg-blue-200"
+      >
+        View All Public Notices
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  )}
+</section>
+
+<style>
+.public-notices details {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0.75rem;
+}
+
+.public-notices summary {
+  list-style: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.public-notices summary::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #6b7280;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+
+.public-notices details[open] summary::before {
+  transform: rotate(0deg);
+}
+
+.public-notices summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .public-notices ul li .flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .public-notices ul li .mt-3 {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+}
+</style>
