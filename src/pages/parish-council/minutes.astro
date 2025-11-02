@@ -1,6 +1,7 @@
 ---
 import ParishCouncilLayout from '../../layouts/ParishCouncilLayout.astro'
 import Hero from '../../components/ParishCouncilHero.astro'
+import PublicNotices from '../../components/PublicNotices.astro'
 // import Feature from '../components/Feature.astro'
 // import Counter from '../components/Counter.astro'
 // import ContentMedia from '../components/ContentMedia.astro'
@@ -41,19 +42,7 @@ import Hero from '../../components/ParishCouncilHero.astro'
       </div>
       <aside>
         <h2 class="text-xl font-bold text-left">Latest News</h2>
-        <ul class="mt-4 space-y-2 text-blue-600">
-          <li>
-            Public Notices<a
-              href="/documents/public_notices/public-notice-2025-11-04.pdf"
-              target="_blank"
-              class="hover:underline"><br />Parish Council Meeting, 4th November 2025</a
-            >
-          </li>
-          <!-- <li><a href="#" class="hover:underline">Parish Meetings</a></li>
-          <li><a href="#" class="hover:underline">Wallace Education Fund</a></li>
-          <li><a href="#" class="hover:underline">Deliveries to West Burton</a></li>
-          <li><a href="#" class="hover:underline">May Fair, 28th May 2020 has been canceled</a></li> -->
-        </ul>
+        <PublicNotices limit={3} showPDF={true} />
       </aside>
     </div>
   </main>

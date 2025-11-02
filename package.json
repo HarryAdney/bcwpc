@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "browserslist:update": "npx update-browserslist-db@latest --update-db",
+    "postinstall": "npx update-browserslist-db@latest --update-db || true"
   },
   "keywords": [
     "West Burton",
