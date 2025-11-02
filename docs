@@ -1,0 +1,278 @@
+# LlamaIndex Integration for Burton-cum-Walden Parish Council
+
+This document explains how to set up and use the LlamaIndex AI-powered document search functionality in your parish council website.
+
+## Overview
+
+The LlamaIndex integration provides intelligent document search capabilities that allow users to search through parish council documents using natural language queries. It can index and search through:
+
+- Meeting minutes
+- Annual reports
+- Newsletters
+- Policies and procedures
+- Public notices
+- Other council documents
+
+## Quick Start
+
+### 1. Get API Keys
+
+You'll need at least one of the following:
+
+**Option A: OpenAI API Key (Recommended)**
+- Get your API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+- Used for embeddings and LLM generation
+- Provides the best search quality
+
+**Option B: LlamaIndex.ai API Key**
+- Get your API key from [LlamaIndex Cloud](https://cloud.llamaindex.ai/)
+- Provides managed LlamaIndex services
+
+**Option C: Local Ollama (Free but requires setup)**
+- Install [Ollama](https://ollama.ai/)
+- Requires local LLM setup but no API costs
+
+### 2. Environment Setup
+
+1. Copy the example environment file:
+```bash
+cp .env.example .env
+```
+
+2. Configure your API keys in `.env`:
+```bash
+# For OpenAI (recommended)
+OPENAI_API_KEY=your_openai_api_key_here
+
+# For LlamaIndex
+LLAMAINDEX_API_KEY=your_llamaindex_api_key_here
+
+# For Ollama (alternative)
+# OLLAMA_MODEL=llama3
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Index Parish Documents
+
+The system will automatically detect and index documents from:
+- `public/documents/` - Main documents directory
+- `public/documents/minutes/` - Meeting minutes
+- `public/documents/annual-reports/` - Annual reports
+- `public/documents/newsletters/` - Newsletters
+- `public/documents/public_notices/` - Public notices
+
+To manually trigger indexing, use the admin API:
+
+```bash
+curl -X POST http://localhost:4321/api/manage-index \
+  -H "Content-Type: application/json" \
+  -d '{"action": "initialize"}'
+```
+
+### 5. Start Development Server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:4321/search` to test the search functionality.
+
+## API Endpoints
+
+### Search Documents
+```http
+POST /api/search
+Content-Type: application/json
+
+{
+  "query": "What decisions were made about planning permission?",
+  "topK": 10
+}
+```
+
+### Index a Single Document
+```http
+POST /api/index-document
+Content-Type: application/json
+
+{
+  "content": "Document text content...",
+  "title": "Document Title",
+  "type": "minutes",
+  "metadata": {
+    "date": "2024-03-05",
+    "path": "/documents/minutes-2024-03-05.pdf"
+  }
+}
+```
+
+### Manage Index
+```http
+GET /api/manage-index  # Get all indexed documents
+
+POST /api/manage-index
+Content-Type: application/json
+
+{
+  "action": "initialize"  # Initialize index
+}
+```
+
+## Using the Search Component
+
+You can use the `LlamaIndexSearch` component in any page:
+
+```astro
+---
+import LlamaIndexSearch from '../components/LlamaIndexSearch.astro';
+---
+
+<LlamaIndexSearch
+  placeholder="Search parish council documents..."
+  maxResults={15}
+  searchTypes={['minutes', 'annual-report', 'newsletter', 'policy']}
+/>
+```
+
+## Search Features
+
+### Natural Language Queries
+Ask questions in plain English:
+- "What decisions were made about the new development?"
+- "How much was spent on village maintenance?"
+- "What events were organized for the community?"
+
+### Document Types Supported
+- **Minutes** - Council meeting minutes and decisions
+- **Annual Reports** - Yearly council reports and statistics
+- **Newsletters** - Community newsletters and updates
+- **Policies** - Council policies and procedures
+- **Notices** - Public notices and announcements
+
+### Search Capabilities
+- **Semantic Search** - Finds documents based on meaning, not just keywords
+- **Contextual Results** - Returns relevant excerpts with scores
+- **Multiple Formats** - Supports PDF, TXT, HTML, and DOCX files
+- **Fast Indexing** - Quick document processing and indexing
+
+## Configuration Options
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `OPENAI_API_KEY` | OpenAI API key for embeddings | None |
+| `LLAMAINDEX_API_KEY` | LlamaIndex API key | None |
+| `LLAMAINDEX_LLM_PROVIDER` | LLM provider (openai/ollama) | openai |
+| `SEARCH_MAX_RESULTS` | Maximum search results | 10 |
+| `SEARCH_DEBOUNCE_MS` | Search input delay (ms) | 300 |
+
+### Search Component Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `placeholder` | string | "Search parish council..." | Input placeholder text |
+| `maxResults` | number | 10 | Maximum results to display |
+| `searchTypes` | string[] | All types | Allowed document types |
+
+## Architecture
+
+### Files Structure
+```
+src/
+├── lib/
+│   ├── llamaindex.ts           # Core LlamaIndex service
+│   └── document-ingestion.ts   # Document processing
+├── components/
+│   └── LlamaIndexSearch.astro  # Search UI component
+└── pages/
+    ├── api/
+    │   ├── search.ts           # Search endpoint
+    │   ├── index-document.ts   # Index endpoint
+    │   └── manage-index.ts     # Management endpoint
+    └── search.astro            # Search page
+```
+
+### Data Flow
+1. **Document Processing** - Files are read and text is extracted
+2. **Indexing** - Text is converted to embeddings and stored in vector index
+3. **Search** - User queries are matched against indexed documents
+4. **Results** - Relevant documents are returned with scores
+
+## Troubleshooting
+
+### Common Issues
+
+**API Key Errors**
+- Ensure your API key is correctly set in `.env`
+- Check that the key has sufficient credits/quota
+- Verify network connectivity to API endpoints
+
+**No Search Results**
+- Check if documents are properly indexed
+- Verify document formats are supported
+- Ensure search query is meaningful
+
+**Performance Issues**
+- Consider using local Ollama for faster processing
+- Reduce `maxResults` for quicker responses
+- Check API rate limits
+
+### Debug Mode
+
+Enable debug logging by setting:
+```bash
+NODE_ENV=development
+```
+
+### Manual Indexing
+
+If automatic indexing fails, you can manually index specific directories:
+
+```bash
+curl -X POST http://localhost:4321/api/manage-index \
+  -H "Content-Type: application/json" \
+  -d '{
+    "action": "index-directory",
+    "dirPath": "./public/documents/minutes",
+    "documentType": "minutes"
+  }'
+```
+
+## Security Considerations
+
+- API keys should be stored securely and not committed to version control
+- Consider implementing rate limiting for production use
+- Validate user inputs to prevent injection attacks
+- Monitor API usage to prevent unexpected costs
+
+## Performance Optimization
+
+### For Production
+1. **Use OpenAI API** - Provides best search quality and speed
+2. **Cache Results** - Implement caching for common queries
+3. **Optimize Documents** - Pre-process large documents
+4. **Monitor Usage** - Track API costs and performance
+
+### For Development
+1. **Use Ollama** - Free local LLM option
+2. **Limit Documents** - Index only essential documents
+3. **Reduce Results** - Lower `maxResults` for faster responses
+
+## Support
+
+For technical support or questions about the LlamaIndex integration:
+
+1. Check the [LlamaIndex Documentation](https://docs.llamaindex.ai/)
+2. Review the API documentation above
+3. Check the troubleshooting section
+4. Examine browser console for error messages
+
+## License
+
+This integration follows the same MIT license as the main parish council website project.
