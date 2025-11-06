@@ -1,9 +1,9 @@
 ---
-title: Burton-cum-Walden Parish Council Minutes for Tuesday, DATE
-author:Richard Nolan
-chairman: Jane Ritchie
-description: Burton-cum-Walden Parish Council Minutes of the Parish Council meeting held on DAY OF THE WEEK, DATE
-dated: 'DATE'
+title: "Burton-cum-Walden Parish Council Minutes for Tuesday, DATE"
+author: "Richard Nolan"
+chairman: "Jane Ritchie"
+description: "Burton-cum-Walden Parish Council Minutes of the Parish Council meeting held on DAY OF THE WEEK, DATE"
+dated: "DATE"
 ---
 
 A Parish Council meeting was held in the Village Hall, West Burton on Tuesday, DATE
