@@ -1,0 +1,235 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import LlamaIndexSearch from '../components/LlamaIndexSearch.astro';
+
+const pageTitle = 'Document Search';
+const pageDescription = 'Search through parish council documents, minutes, policies, and newsletters using AI-powered search.';
+
+const breadcrumbItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Document Search', href: '/search', current: true }
+];
+---
+
+<DefaultLayout
+  title={pageTitle}
+  description={pageDescription}
+  breadcrumbItems={breadcrumbItems}
+>
+  <section class="search-section">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Document Search</h1>
+        <p class="page-description">
+          Search through parish council documents using natural language queries.
+          Find information about decisions, policies, meetings, and community updates.
+        </p>
+      </header>
+
+      <div class="search-wrapper">
+        <LlamaIndexSearch
+          placeholder="Search for council decisions, policies, meeting minutes..."
+          maxResults={15}
+          searchTypes={['minutes', 'annual-report', 'newsletter', 'policy', 'notice']}
+        />
+      </div>
+
+      <div class="search-features">
+        <h2>Search Capabilities</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🗣️</div>
+            <h3>Natural Language</h3>
+            <p>Ask questions in plain English like "What decisions were made about planning permission?"</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Meeting Minutes</h3>
+            <p>Search through council meeting minutes and find specific discussions or decisions.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📜</div>
+            <h3>Policies & Procedures</h3>
+            <p>Find information about council policies, procedures, and governance documents.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Reports & Data</h3>
+            <p>Search annual reports, financial information, and community statistics.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-examples">
+        <h2>Example Searches</h2>
+        <div class="examples-grid">
+          <div class="example-query">
+            <strong>Planning Applications:</strong>
+            <p>"What decisions were made about the new development on Main Street?"</p>
+          </div>
+
+          <div class="example-query">
+            <strong>Financial Information:</strong>
+            <p>"How much was spent on village maintenance in 2024?"</p>
+          </div>
+
+          <div class="example-query">
+            <strong>Community Events:</strong>
+            <p>"What events were organized for the village fete?"</p>
+          </div>
+
+          <div class="example-query">
+            <strong>Policy Updates:</strong>
+            <p>"What changes were made to the parking policy?"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  @use '../assets/scss/base/container' as *;
+
+  .search-section {
+    padding: 2rem 0 4rem 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--neutral-foreground);
+    margin-bottom: 1rem;
+  }
+
+  .page-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--neutral-muted-foreground);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .search-wrapper {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: var(--neutral-muted);
+    border-radius: 1rem;
+  }
+
+  .search-features {
+    margin-bottom: 4rem;
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--neutral-foreground);
+    }
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--neutral-background);
+    border: 1px solid var(--neutral-border);
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--neutral-foreground);
+  }
+
+  .feature-card p {
+    color: var(--neutral-muted-foreground);
+    line-height: 1.5;
+  }
+
+  .search-examples {
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--neutral-foreground);
+    }
+  }
+
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .example-query {
+    padding: 1.5rem;
+    background-color: var(--neutral-background);
+    border: 1px solid var(--neutral-border);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--action-color);
+
+    strong {
+      color: var(--action-color);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: var(--neutral-muted-foreground);
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .page-description {
+      font-size: 1rem;
+    }
+
+    .search-wrapper {
+      padding: 1.5rem;
+    }
+
+    .features-grid,
+    .examples-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

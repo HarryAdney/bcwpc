@@ -8,6 +8,9 @@ import { brotli } from '@zokki/astro-brotli'
 export default defineConfig({
   compressHTML: true, // Disable HTML compression
   site: 'https://westburton-yorkshire.org.uk',
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [
     mdx(),
     icon(),
